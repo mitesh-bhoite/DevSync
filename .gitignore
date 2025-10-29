@@ -1,0 +1,57 @@
+node_modules/
+.env
+frontend/build/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+```
+
+### **Step 3: Save the file**
+
+Press **Ctrl + S** to save.
+
+---
+
+## **Now Run Git Commands in Terminal (NOT in .gitignore!)**
+
+The Git commands should be run in the **TERMINAL**, not pasted into any file!
+
+1. **Open Terminal** in VS Code (View → Terminal, or Ctrl + `)
+
+2. **Make sure you're in the DevSync folder:**
+```
+   cd DevSync
+```
+   (If you're already there, skip this)
+
+3. **Now run these commands ONE BY ONE in the terminal:**
+```
+   git init
+```
+   
+   Then:
+```
+   git add .
+```
+   
+   Then:
+```
+   git commit -m "Initial commit - DevSync MERN app"
+```
+   
+   Then (replace YOUR_USERNAME with your GitHub username):
+```
+   git remote add origin https://github.com/YOUR_USERNAME/DevSync.git
+```
+   
+   Then:
+```
+   git branch -M main
+```
+   
+   Finally:
+```
+   git push -u origin main
