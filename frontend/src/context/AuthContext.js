@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
@@ -10,16 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common["x-auth-token"] = token;
-      loadUser();
-    } else {
-      setLoading(false);
-    }
-  }, [token, loadUser]); // Add loadUser here
-
-  const loadUser = async () => {
+  // Load user data - wrapped in useCallback to prevent re-renders
+  const loadUser = useCallback(async () => {
     try {
       const res = await axios.get(`${API_URL}/api/users/me`);
       setUser(res.data);
@@ -28,7 +20,16 @@ export const AuthProvider = ({ children }) => {
       console.error("Error loading user:", error);
       logout();
     }
-  };
+  }, []); // Empty dependency array since it doesn't depend on anything
+
+  useEffect(() => {
+    if (token) {
+      axios.defaults.headers.common["x-auth-token"] = token;
+      loadUser();
+    } else {
+      setLoading(false);
+    }
+  }, [token, loadUser]);
 
   const register = async (formData) => {
     try {
