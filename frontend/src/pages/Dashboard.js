@@ -3,6 +3,16 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Dashboard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faFileAlt,
+  faStar,
+  faEdit,
+  faSearch,
+  faCog,
+} from "@fortawesome/free-solid-svg-icons";
+
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Dashboard = () => {
@@ -46,13 +56,15 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1>Welcome back, {user?.name}!!!</h1>
+        <h1>Welcome back, {user?.name}!</h1>
         <p>Here's what's happening with your account</p>
       </div>
 
       <div className="stats-grid">
         <div className="stat-card">
-          <div className="stat-icon">👥</div>
+          <div className="stat-icon">
+            <FontAwesomeIcon icon={faUsers} />
+          </div>
           <div className="stat-content">
             <h3>{stats.connections}</h3>
             <p>Connections</p>
@@ -60,7 +72,9 @@ const Dashboard = () => {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon">📝</div>
+          <div className="stat-icon">
+            <FontAwesomeIcon icon={faFileAlt} />
+          </div>
           <div className="stat-content">
             <h3>{stats.posts}</h3>
             <p>Posts</p>
@@ -68,7 +82,9 @@ const Dashboard = () => {
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon">⭐</div>
+          <div className="stat-icon">
+            <FontAwesomeIcon icon={faStar} />
+          </div>
           <div className="stat-content">
             <h3>{user?.skills?.length || 0}</h3>
             <p>Skills</p>
@@ -103,21 +119,27 @@ const Dashboard = () => {
             <h2>Quick Actions</h2>
             <div className="quick-actions">
               <Link to="/posts" className="action-btn">
-                <span className="action-icon">📝</span>
+                <span className="action-icon">
+                  <FontAwesomeIcon icon={faEdit} />
+                </span>
                 <div>
                   <h4>Create Post</h4>
                   <p>Share your thoughts</p>
                 </div>
               </Link>
               <Link to="/developers" className="action-btn">
-                <span className="action-icon">🔍</span>
+                <span className="action-icon">
+                  <FontAwesomeIcon icon={faSearch} />
+                </span>
                 <div>
                   <h4>Find Developers</h4>
                   <p>Connect with others</p>
                 </div>
               </Link>
               <Link to="/profile" className="action-btn">
-                <span className="action-icon">⚙️</span>
+                <span className="action-icon">
+                  <FontAwesomeIcon icon={faCog} />
+                </span>
                 <div>
                   <h4>Settings</h4>
                   <p>Update your profile</p>

@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faComments,
+  faRocket,
+  faHandshake,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
@@ -31,22 +38,30 @@ const Home = () => {
           <h2>Why Choose DevSync?</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">👥</div>
+              <div className="feature-icon">
+                <FontAwesomeIcon icon={faUsers} />
+              </div>
               <h3>Connect</h3>
               <p>Network with developers from around the world</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">💬</div>
+              <div className="feature-icon">
+                <FontAwesomeIcon icon={faComments} />
+              </div>
               <h3>Share</h3>
               <p>Post updates, projects, and ideas with the community</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🚀</div>
+              <div className="feature-icon">
+                <FontAwesomeIcon icon={faRocket} />
+              </div>
               <h3>Grow</h3>
               <p>Build your developer profile and showcase your skills</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🤝</div>
+              <div className="feature-icon">
+                <FontAwesomeIcon icon={faHandshake} />
+              </div>
               <h3>Collaborate</h3>
               <p>Find teammates and work on exciting projects together</p>
             </div>

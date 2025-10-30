@@ -178,3 +178,7 @@
   margin-bottom: 20px;
   font-weight: 600;
 }
+.stat-icon svg,
+.action-icon svg {
+  font-size: inherit;
+}
