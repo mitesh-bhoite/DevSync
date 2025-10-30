@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider, AuthContext } from "./context/AuthContext";
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -16,7 +17,6 @@ import Developers from "./pages/Developers";
 import Posts from "./pages/Posts";
 import "./styles.css";
 
-// Protected Route Component
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
@@ -31,7 +31,6 @@ const PrivateRoute = ({ children }) => {
   return user ? children : <Navigate to="/login" />;
 };
 
-// Public Route Component (redirect to dashboard if already logged in)
 const PublicRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
@@ -103,6 +102,7 @@ function App() {
               }
             />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>
