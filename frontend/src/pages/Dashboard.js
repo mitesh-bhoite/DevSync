@@ -21,6 +21,7 @@ const Dashboard = () => {
       });
       fetchUserPosts();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const fetchUserPosts = async () => {

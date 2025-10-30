@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setLoading(false);
     }
-  }, [token]);
+  }, [token, loadUser]); // Add loadUser here
 
   const loadUser = async () => {
     try {
