@@ -12,7 +12,7 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://devsync-6hf6.onrender.com"],
+    origin: ["http://localhost:3000", "https://devsyncbymyth.netlify.app"],
     credentials: true,
   })
 );
